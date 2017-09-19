@@ -18,11 +18,12 @@ import { Component, OnInit } from '@angular/core';
   selector: '.app-servers',
 
   // Inline template for short html scripts
-  template: 
-  `  
-    <app-server></app-server>
-    <app-server></app-server>
-  `,
+  // template: 
+  // `  
+  //   <app-server></app-server>
+  //   <app-server></app-server>
+  // `,
+  templateUrl: './servers.component.html',
 
   // Similarly using an inline template for short css scripts
   // is also feasible
@@ -30,9 +31,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServersComponent implements OnInit {
 
-  constructor() { }
+  allowNewServer: boolean = false;
+  serverCreationStatus: string = "No server was created";
+  serverName = 'TestServer';
+
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
+   }
 
   ngOnInit() {
+  }
+
+  onCreateServer(){
+    this.serverCreationStatus = 'Server was created! Its name is ' + this.serverName;
+  }
+
+  onUpdateServerName(event: any){
+    this.serverName = (<HTMLInputElement>event.target).value;
   }
 
 }

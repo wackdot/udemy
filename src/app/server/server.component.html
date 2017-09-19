@@ -1,2 +1,6 @@
-<p> {{'Server'}} with ID {{serverId}} is {{ serverStatus }} </p>
+<!-- 
+String interpolation, requires expression to be resolved into a string    
+Unable to use block statements (e.g. If statement) or multi line expression 
+-->
+<p> {{'Server'}} with ID {{ serverId }} is {{ getServerStatus() }} </p>
 

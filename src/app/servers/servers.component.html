@@ -1,2 +1,34 @@
+<label>Server Name</label>
+
+<!-- One Way Binding -->
+<!-- <input
+    type="text"
+    class="form-control"
+    (input)="onUpdateServerName($event)"> -->
+
+<!-- Two Way Binding
+Binds the typescript element with the html element, 
+changes in either element would update the value and is reflected in the other element --> 
+    <input
+    type="text"
+    class="form-control"
+    [(ngModel)]="serverName">
+
+<!-- Property: The html element disable property is binded to 
+a typescript property. The update of propert is done dynamically -->
+<button class="btn btn-primary"
+[disabled]="!allowNewServer"
+(click)="onCreateServer()">
+Add Server</button>
+
+<p>{{ serverCreationStatus }}</p>
+
+<!-- Property binding is typically used a property of a html/component/directive element while 
+string interpolation is used to output dynamic text. Note: String interpolation cannot be used 
+within the property list, as the [Property] = [Typescript element/method] is an Angular specific 
+format. While the double curly brackets used in string interpolation {{}} must be used outside the 
+element tag -->
+<!-- <p [innerText] = "allowNewServer"></p> -->
+
 <app-server></app-server>
 <app-server></app-server>
